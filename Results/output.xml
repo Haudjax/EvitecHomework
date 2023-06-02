@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.9.5 on win32)" generated="20230602 20:00:25.852" rpa="false" schemaversion="3">
+<suite id="s1" name="BasicShopping" source="C:\Users\20201304\PycharmProjects\EvitecHomework\Tests\amazon\BasicShopping.robot">
+<test id="s1-t1" name="Scenario: An user wants to search for a product" line="24">
+<kw name="Given the user wants to browse Amazon" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.amazon.co.uk</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230602 20:00:26.053" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.co.uk'.</msg>
+<status status="PASS" starttime="20230602 20:00:26.053" endtime="20230602 20:00:28.299"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:26.053" endtime="20230602 20:00:28.299"/>
+</kw>
+<kw name="When the user searches for a product">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Searchbox}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:28.301" level="INFO">Typing text 'computer' into text field 'xpath://*[@id='twotabsearchtextbox']'.</msg>
+<status status="PASS" starttime="20230602 20:00:28.300" endtime="20230602 20:00:28.549"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchButton}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230602 20:00:28.550" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id='nav-search-submit-button'] element.</msg>
+<msg timestamp="20230602 20:00:30.537" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230602 20:00:30.537" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230602 20:00:28.549" endtime="20230602 20:00:30.544"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:28.300" endtime="20230602 20:00:30.544"/>
+</kw>
+<kw name="Then the search results should contain items corresponding to the product">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>results for "${search_text}"</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230602 20:00:30.583" level="INFO">Current page contains text 'results for "computer"'.</msg>
+<status status="PASS" starttime="20230602 20:00:30.545" endtime="20230602 20:00:30.583"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:30.545" endtime="20230602 20:00:30.584"/>
+</kw>
+<kw name="When the user wants to sort the search results in a particular order">
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<arg>${sortpreference}</arg>
+<arg>${index}</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<msg timestamp="20230602 20:00:30.585" level="INFO">Selecting options from selection list 'xpath://*[@id='s-result-sort-select']' by index 4.</msg>
+<status status="PASS" starttime="20230602 20:00:30.584" endtime="20230602 20:00:30.779"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:30.584" endtime="20230602 20:00:30.779"/>
+</kw>
+<kw name="Then the search results should be sorted accordingly">
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<arg>${sortpreference}</arg>
+<arg>${index}</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<msg timestamp="20230602 20:00:30.780" level="INFO">Selecting options from selection list 'xpath://*[@id='s-result-sort-select']' by index 4.</msg>
+<status status="PASS" starttime="20230602 20:00:30.779" endtime="20230602 20:00:30.846"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Sort by:${sortby}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230602 20:00:30.867" level="INFO">Current page contains text 'Sort by:Newest arrivals'.</msg>
+<status status="PASS" starttime="20230602 20:00:30.847" endtime="20230602 20:00:30.867"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:30.779" endtime="20230602 20:00:30.867"/>
+</kw>
+<kw name="The user wants to stop browsing" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230602 20:00:30.868" endtime="20230602 20:00:32.977"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:30.868" endtime="20230602 20:00:32.977"/>
+</kw>
+<doc>This test case verifies the basic search functionality of amazon.co.uk</doc>
+<tag>Functional</tag>
+<status status="PASS" starttime="20230602 20:00:26.052" endtime="20230602 20:00:32.977"/>
+</test>
+<test id="s1-t2" name="Scenario: An user wants to click on the first search result" line="33">
+<kw name="Given the user wants to browse Amazon" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.amazon.co.uk</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230602 20:00:32.979" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.co.uk'.</msg>
+<status status="PASS" starttime="20230602 20:00:32.979" endtime="20230602 20:00:34.983"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:32.979" endtime="20230602 20:00:34.983"/>
+</kw>
+<kw name="When the user searches for a product">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Searchbox}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:34.985" level="INFO">Typing text 'computer' into text field 'xpath://*[@id='twotabsearchtextbox']'.</msg>
+<status status="PASS" starttime="20230602 20:00:34.984" endtime="20230602 20:00:35.344"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchButton}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230602 20:00:35.345" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id='nav-search-submit-button'] element.</msg>
+<msg timestamp="20230602 20:00:37.152" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230602 20:00:37.152" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230602 20:00:35.344" endtime="20230602 20:00:37.168"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:34.984" endtime="20230602 20:00:37.168"/>
+</kw>
+<kw name="Then the user should be able to click on the first search result and land on the product page">
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${FirstResultName}</var>
+<arg>${firstresult}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:37.276" level="INFO">${FirstResultName} = Lenovo C22-25 21.5inch PC Computer Monitor, HDMI, FHD Resolution, Black</msg>
+<status status="PASS" starttime="20230602 20:00:37.169" endtime="20230602 20:00:37.276"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${firstelementlink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:37.277" level="INFO">Clicking element '//div[@data-component-type='s-search-result']//a[contains(@class, 'a-link-normal')]'.</msg>
+<status status="PASS" starttime="20230602 20:00:37.276" endtime="20230602 20:00:40.329"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${ClickedName}</var>
+<arg>${producttitle}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:40.357" level="INFO">${ClickedName} = Lenovo C22-25 21.5inch PC Computer Monitor, HDMI, FHD Resolution, Black</msg>
+<status status="PASS" starttime="20230602 20:00:40.329" endtime="20230602 20:00:40.357"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${FirstResultName}</arg>
+<arg>${ClickedName}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230602 20:00:40.357" endtime="20230602 20:00:40.358"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:37.169" endtime="20230602 20:00:40.358"/>
+</kw>
+<kw name="The user wants to stop browsing" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230602 20:00:40.359" endtime="20230602 20:00:42.471"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:40.358" endtime="20230602 20:00:42.471"/>
+</kw>
+<doc>This test verifies that the first search result is clickable</doc>
+<tag>Functional</tag>
+<status status="PASS" starttime="20230602 20:00:32.978" endtime="20230602 20:00:42.472"/>
+</test>
+<test id="s1-t3" name="Scenario: An user wants to add an item to the cart" line="40">
+<kw name="Given the user wants to browse Amazon" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.amazon.co.uk</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230602 20:00:42.474" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.co.uk'.</msg>
+<status status="PASS" starttime="20230602 20:00:42.474" endtime="20230602 20:00:44.718"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:42.473" endtime="20230602 20:00:44.718"/>
+</kw>
+<kw name="When the user searches for a product">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${Searchbox}</arg>
+<arg>${search_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:44.720" level="INFO">Typing text 'computer' into text field 'xpath://*[@id='twotabsearchtextbox']'.</msg>
+<status status="PASS" starttime="20230602 20:00:44.719" endtime="20230602 20:00:44.983"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>${SearchButton}</arg>
+<arg>RETURN</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20230602 20:00:44.984" level="INFO">Sending key(s) ('RETURN',) to xpath://*[@id='nav-search-submit-button'] element.</msg>
+<msg timestamp="20230602 20:00:46.715" level="INFO">Pressing special key RETURN to element.</msg>
+<msg timestamp="20230602 20:00:46.716" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20230602 20:00:44.983" endtime="20230602 20:00:46.723"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:44.719" endtime="20230602 20:00:46.723"/>
+</kw>
+<kw name="Then they should be able to put an item to the cart">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${firstelementlink}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:46.724" level="INFO">Clicking element '//div[@data-component-type='s-search-result']//a[contains(@class, 'a-link-normal')]'.</msg>
+<status status="PASS" starttime="20230602 20:00:46.724" endtime="20230602 20:00:50.052"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${addtocartbox}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:50.053" level="INFO">Clicking element 'xpath://*[@id='addToCart_feature_div']'.</msg>
+<status status="PASS" starttime="20230602 20:00:50.052" endtime="20230602 20:00:50.130"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:46.724" endtime="20230602 20:00:50.130"/>
+</kw>
+<kw name="And they should see that the item has been put into the basket">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Added to Basket</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20230602 20:00:50.182" level="INFO">Current page contains text 'Added to Basket'.</msg>
+<status status="PASS" starttime="20230602 20:00:50.131" endtime="20230602 20:00:50.182"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:50.130" endtime="20230602 20:00:50.184"/>
+</kw>
+<kw name="The user wants to stop browsing" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230602 20:00:50.184" endtime="20230602 20:00:52.303"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:50.184" endtime="20230602 20:00:52.303"/>
+</kw>
+<doc>This test verifies that an item can be added to the cart</doc>
+<tag>Functional</tag>
+<status status="PASS" starttime="20230602 20:00:42.473" endtime="20230602 20:00:52.303"/>
+</test>
+<test id="s1-t4" name="Scenario: An user wants to sign in and out of their account" line="48">
+<kw name="Given the user wants to browse Amazon" library="CommonFunctionality" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://www.amazon.co.uk</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230602 20:00:52.306" level="INFO">Opening browser 'chrome' to base url 'https://www.amazon.co.uk'.</msg>
+<status status="PASS" starttime="20230602 20:00:52.305" endtime="20230602 20:00:54.423"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:52.305" endtime="20230602 20:00:54.423"/>
+</kw>
+<kw name="When the user wants to sign in">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${signinentry}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:54.425" level="INFO">Clicking element 'xpath://*[@id='nav-link-accountList']'.</msg>
+<status status="PASS" starttime="20230602 20:00:54.424" endtime="20230602 20:00:54.979"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:54.424" endtime="20230602 20:00:54.979"/>
+</kw>
+<kw name="And enters their credentials correctly">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${emailbox}</arg>
+<arg>${USER}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:54.981" level="INFO">Typing text 'cemojo4564@onlcool.com' into text field 'xpath://*[@id='ap_email']'.</msg>
+<status status="PASS" starttime="20230602 20:00:54.980" endtime="20230602 20:00:55.098"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${continuebutton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:55.098" level="INFO">Clicking element 'xpath://*[@id='continue']'.</msg>
+<status status="PASS" starttime="20230602 20:00:55.098" endtime="20230602 20:00:55.476"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passwordbox}</arg>
+<arg>${key}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:55.477" level="INFO">Typing text 'password' into text field 'xpath://*[@id='ap_password']'.</msg>
+<status status="PASS" starttime="20230602 20:00:55.476" endtime="20230602 20:00:55.539"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${signinbutton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:55.539" level="INFO">Clicking element 'xpath://*[@id='auth-signin-button']'.</msg>
+<status status="PASS" starttime="20230602 20:00:55.539" endtime="20230602 20:00:55.601"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:54.980" endtime="20230602 20:00:55.601"/>
+</kw>
+<kw name="Then they should be signed in">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Buy Again</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230602 20:00:55.602" endtime="20230602 20:00:57.146"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:55.602" endtime="20230602 20:00:57.146"/>
+</kw>
+<kw name="When an user wants to sign out">
+<kw name="Mouse Over" library="SeleniumLibrary">
+<arg>${accountinfo}</arg>
+<doc>Simulates hovering the mouse over the element ``locator``.</doc>
+<msg timestamp="20230602 20:00:57.148" level="INFO">Simulating Mouse Over on element 'xpath://*[@id='nav-link-accountList']'.</msg>
+<status status="PASS" starttime="20230602 20:00:57.147" endtime="20230602 20:00:57.484"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${signoutbutton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230602 20:00:57.484" level="INFO">Clicking element 'xpath://*[@id='nav-item-signout']'.</msg>
+<status status="PASS" starttime="20230602 20:00:57.484" endtime="20230602 20:00:58.151"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:57.147" endtime="20230602 20:00:58.151"/>
+</kw>
+<kw name="Then they should be signed out">
+<kw name="Wait Until Page Contains" library="SeleniumLibrary">
+<arg>Sign in</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230602 20:00:58.152" endtime="20230602 20:00:58.171"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:58.152" endtime="20230602 20:00:58.171"/>
+</kw>
+<kw name="The user wants to stop browsing" library="CommonFunctionality" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230602 20:00:58.172" endtime="20230602 20:01:00.276"/>
+</kw>
+<status status="PASS" starttime="20230602 20:00:58.172" endtime="20230602 20:01:00.276"/>
+</kw>
+<doc>This test verifies the log in/out functionalities</doc>
+<tag>Functional</tag>
+<status status="PASS" starttime="20230602 20:00:52.305" endtime="20230602 20:01:00.276"/>
+</test>
+<doc>Basic Amazon Shopping Functionality</doc>
+<status status="PASS" starttime="20230602 20:00:25.854" endtime="20230602 20:01:00.278"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="4" fail="0" skip="0">Functional</stat>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="BasicShopping">BasicShopping</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
